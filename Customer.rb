@@ -1,7 +1,14 @@
+require_relative('../db/sqlrunner')
+
 class Customer
 
-  def initialize()
+  attr_reader :id
+  attr_accessor :name, :funds
 
+  def initialize(options)
+    @id = options['id'].to_i
+    @name = options['name']
+    @funds = options['funds']
   end
 
   def save()

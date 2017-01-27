@@ -1,7 +1,14 @@
+require_relative('../db/sqlrunner')
+
 class Film
 
-  def initialize()
+  attr_reader :id
+  attr_accessor :title, :price
 
+  def initialize(options)
+    @id = options['id'].to_i
+    @title = options['title']
+    @price = options['price']
   end
 
   def save()
