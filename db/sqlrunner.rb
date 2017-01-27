@@ -4,7 +4,7 @@ require_relative('../Customer')
 require_relative('../Film')
 require_relative('../Ticket')
 
-class SqlRunner()
+class SqlRunner
 
   def self.run(sql)
     begin

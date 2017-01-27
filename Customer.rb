@@ -1,4 +1,4 @@
-require_relative('../db/sqlrunner')
+require_relative('db/sqlrunner')
 
 class Customer
 
@@ -8,16 +8,25 @@ class Customer
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
-    @funds = options['funds']
+    @funds = options['funds'].to_i
   end
 
   def save()
+    sql = "INSERT INTO customers (name, funds) VALUES ('#{@name}', #{@funds}) RETURNING id;"
+    customer = SqlRunner.run(sql).first
+    @id = customer['id'].to_i
   end
 
   def update()
   end
 
   def delete()
+  end
+
+  def self.all()
+  end
+
+  def self.delete_all()
   end
 
 end
