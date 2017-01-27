@@ -2,8 +2,7 @@ require_relative('db/sqlrunner')
 
 class Ticket
   
-  attr_reader :id
-  attr_accessor :customer_id, :film_id
+  attr_reader :id, :customer_id, :film_id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -17,10 +16,26 @@ class Ticket
     @id = ticket['id'].to_i
   end
 
-  def update()
-  end
+  # ************
+  # def update()
+  #   sql = "UPDATE tickets SET (customer_id, film_id) = (#{@customer_id}, #{@film_id}) WHERE id = #{@id};"
+  #   SqlRunner.run(sql)
+  # end
 
   def delete()
+    sql = "DELETE FROM tickets WHERE id = #{@id};"
+    SqlRunner.run(sql) 
+  end
+
+  def self.all()
+    sql = "SELECT * FROM tickets;"
+    result = SqlRunner.run(sql)
+    return result.map { |ticket| Ticket.new(ticket) }
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM tickets;"
+    SqlRunner.run(sql)
   end
 
 
