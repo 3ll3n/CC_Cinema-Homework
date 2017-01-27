@@ -1,4 +1,4 @@
-class Customer
+class Film
 
   def initialize()
 
@@ -12,5 +12,7 @@ class Customer
 
   def delete()
   end
+
+
 
 end

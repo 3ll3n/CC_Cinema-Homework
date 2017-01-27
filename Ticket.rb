@@ -1,4 +1,4 @@
-class Customer
+class Ticket
 
   def initialize()
 
@@ -12,5 +12,6 @@ class Customer
 
   def delete()
   end
+
 
 end
