@@ -43,7 +43,12 @@ class Customer
       @funds -= film.price
       new_ticket = Ticket.new({'customer_id' => @id , 'film_id' => film.id})
       new_ticket.save
-    end
+    end    
+  end
+
+  def bought_tickets()
+    sql = "SELECT COUNT(*) bought_tickets FROM tickets WHERE customer_id = #{@id};"
+    return SqlRunner.run(sql).first['bought_tickets'].to_i
   end
 
 end
