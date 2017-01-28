@@ -16,11 +16,10 @@ class Ticket
     @id = ticket['id'].to_i
   end
 
-  # ************
-  # def update()
-  #   sql = "UPDATE tickets SET (customer_id, film_id) = (#{@customer_id}, #{@film_id}) WHERE id = #{@id};"
-  #   SqlRunner.run(sql)
-  # end
+  def update()
+    sql = "UPDATE tickets SET (customer_id, film_id) = (#{@customer_id}, #{@film_id}) WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
 
   def delete()
     sql = "DELETE FROM tickets WHERE id = #{@id};"

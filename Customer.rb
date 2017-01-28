@@ -38,4 +38,12 @@ class Customer
     SqlRunner.run(sql)
   end
 
+  def buy_ticket(film)
+    if @funds >= film.price
+      @funds -= film.price
+      new_ticket = Ticket.new({'customer_id' => @id , 'film_id' => film.id})
+      new_ticket.save
+    end
+  end
+
 end
