@@ -16,8 +16,8 @@ film2 = Film.new({'title' => 'Two Weeks Notice', 'price' => 4})
 film1.save
 film2.save
 
-ticket1 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film1.id})
-ticket2 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id})
+ticket1 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film1.id, 'time' => 20.00})
+ticket2 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id, 'time' => 21.00})
 
 ticket1.save
 ticket2.save
