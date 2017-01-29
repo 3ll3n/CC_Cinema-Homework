@@ -51,4 +51,9 @@ class Customer
     return SqlRunner.run(sql).first['bought_tickets'].to_i
   end
 
+  def self.count_customers_watching_film(film)
+    sql = "SELECT COUNT(*) count_customers_watching_film FROM customers c INNER JOIN tickets t ON t.customer_id = c.id WHERE t.film_id = #{film.id};"
+    return SqlRunner.run(sql).first['count_customers_watching_film'].to_i
+  end
+
 end
